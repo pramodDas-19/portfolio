@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #fbf9f5;
+  --bg-secondary: #f4efe6;
+  --bg-tertiary: #eadfcb;
+  --bg-card: #ffffff;
+  --border-subtle: #e6dfd3;
+  --border-strong: #c8ad81;
+  --text-primary: #12211e;
+  --text-secondary: #4a5c57;
+  --text-muted: #738480;
+  --accent-teal: #135752;
+  --accent-teal-hover: #0b3431;
+  --accent-sand: #ddcaa8;
+  --accent-clay: #b84a2d;
+  --shadow-card: 0 4px 20px -2px rgba(18, 33, 30, 0.06), 0 2px 6px -1px rgba(18, 33, 30, 0.04);
+  --shadow-card-hover: 0 20px 35px -5px rgba(18, 33, 30, 0.12), 0 8px 12px -2px rgba(18, 33, 30, 0.08);
+}
+
+.dark {
+  --bg-primary: #071514;
+  --bg-secondary: #0c1f1e;
+  --bg-tertiary: #122b29;
+  --bg-card: #0f2523;
+  --border-subtle: #1a3c39;
+  --border-strong: #2a5853;
+  --text-primary: #f4fbf9;
+  --text-secondary: #b5c7c4;
+  --text-muted: #78918d;
+  --accent-teal: #39b8ab;
+  --accent-teal-hover: #5ad5c8;
+  --accent-sand: #e6dfcf;
+  --accent-clay: #f07b5d;
+  --shadow-card: 0 4px 25px -2px rgba(0, 0, 0, 0.4);
+  --shadow-card-hover: 0 20px 40px -5px rgba(0, 0, 0, 0.6);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Accessible focus ring */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid #2d9489;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Scroll preview on card */
+.card-preview-viewport {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+.card-preview-img {
+  transition: transform 6s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+.card-interactive-container:hover .card-preview-img {
+  transform: translateY(calc(-100% + 360px));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .card-interactive-container:hover .card-preview-img {
+    transform: none !important;
+  }
+}
+
